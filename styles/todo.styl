@@ -4,12 +4,21 @@
   background-color white
   color black
 
+  input.edit
+    display none
+
   .toggle
     width 20px
+
+  .editing label
+    display none
 
   .label
     display inline-block
     color black
+
+    .editing
+      display: none;
 
   .delete
     position: relative;
@@ -25,4 +34,8 @@
     transition: color 0.2s ease-out;
     outline: none
 
+
+  .done
+    color gray
+    text-decoration line-through
 

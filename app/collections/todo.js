@@ -1,17 +1,19 @@
 'use strict';
 
 var Backbone = require('backbone');
+var Store = require('backbone.localstorage');
 var Todo = require('./../models/todo.js');
 
 var TodoList = Backbone.Collection.extend({
 
   model: Todo,
 
-  localStorage: new Backbone.LocalStorage('todos-backbone'),
+  localStorage: new Store('todos-backbone'),
 
   done: function () {
     return this.where({done: true});
   }
 });
 
-var Todos = new TodoList();
+var todoList = new TodoList();
+module.exports = todoList;

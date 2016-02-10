@@ -6,7 +6,7 @@ var _ = require('underscore');
 
 var Header = require('./views/header/header.js');
 var NewTodo = require('./views/new-todo/newTodo.js');
-var Todos = require('./views/todos/todos.js');
+var TodoList = require('./views/todoList/todoList.js');
 
 var App = Backbone.View.extend({
   initialize: function () {
@@ -16,12 +16,10 @@ var App = Backbone.View.extend({
     var newTodo = new NewTodo();
     newTodo.render();
 
-    var todos = new Todos();
-    todos.render();
-
+    var todoList = new TodoList();
+    todoList.render();
   }
 });
-//88
 
 window.app = new App();
 module.exports = App;
