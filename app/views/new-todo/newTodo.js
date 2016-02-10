@@ -7,21 +7,18 @@ var newTodo = require('./newTodo.html');
 
 var NewTodo = Backbone.View.extend({
 
-    el: '#new-todo',
+  el: '#new-todo',
 
-    initialize: function() {
-        this.render();
-    },
+  initialize: function () {
+    this.render();
+  },
 
-    render: function() {
+  render: function () {
 
-        this.$el.html(_.template(newTodo())());
+    this.$el.html(_.template(newTodo())());
 
-    }
+  }
 });
 
 module.exports = NewTodo;
-window.app = new NewTodo;
-
-
-
+window.app = new NewTodo();

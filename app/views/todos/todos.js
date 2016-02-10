@@ -7,26 +7,24 @@ var todo = require('./todos.html');
 
 var Todo = Backbone.View.extend({
 
-    el: '#todos',
+  el: '#todos',
 
-    tagName: "li",
+  tagName: 'li',
 
-    initialize: function() {
-        this.render();
-    },
+  initialize: function () {
+    this.render();
+  },
 
-    render: function() {
+  render: function () {
 
-        this.$el.html(_.template(todo())({data: {
-            label: 'Take out garbage',
-            done: false
-        }}));
-
-    }
+    this.$el.html(_.template(todo())({
+      data: {
+        label: 'Take out garbage',
+        done: false
+      }
+    }));
+  }
 });
 
 module.exports = Todo;
-window.app = new Todo;
-
-
-
+window.app = new Todo();

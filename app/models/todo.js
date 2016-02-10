@@ -4,16 +4,16 @@ var Backbone = require('backbone');
 
 var Todo = Backbone.Model.extend({
 
-    defaults: function() {
-        return {
-            label: '',
-            done: false
-        };
-    },
+  defaults: function () {
+    return {
+      label: '',
+      done: false
+    };
+  },
 
-    toggle: function() {
-        this.save({done: !this.get("done")});
-    }
+  toggle: function () {
+    this.save({done: !this.get('done')});
+  }
 
 });
 
