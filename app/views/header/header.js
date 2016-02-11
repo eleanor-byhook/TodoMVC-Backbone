@@ -20,7 +20,6 @@ var Header = Backbone.View.extend({
         name: 'todos'
       }
     }));
-
   }
 });
 

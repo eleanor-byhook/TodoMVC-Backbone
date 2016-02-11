@@ -21,4 +21,3 @@ var NewTodo = Backbone.View.extend({
 });
 
 module.exports = NewTodo;
-window.app = new NewTodo();

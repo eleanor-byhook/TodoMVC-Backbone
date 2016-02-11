@@ -1,8 +1,10 @@
 .todo
-  border-top 1px solid gray
+  height 58px
+  border-top 1px solid #ededed
+  padding-top 6px
   list-style none
   background-color white
-  color black
+  color rgb(77, 77, 77)
 
   input.edit
     display none
@@ -20,20 +22,19 @@
     .editing
       display: none;
 
-  .delete
-    position: relative;
-    top: 0;
-    right: -50px;
-    bottom: 0;
-    width: 20px;
-    height: 20px;
-    margin: auto 0;
-    font-size: 30px;
-    color: #cc151c;
-    margin-bottom: 11px;
-    transition: color 0.2s ease-out;
-    outline: none
 
+  .destroy
+    position relative
+    border none
+    background-color white
+    float: right
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    color: #cc9a9a;
+    margin: auto 0;
+    margin-bottom: 11px;
+    outline: none
 
   .done
     color gray

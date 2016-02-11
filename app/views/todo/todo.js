@@ -21,11 +21,16 @@ var Todo = Backbone.View.extend({
   },
 
   events: {
-    'click [type="checkbox"]':'toggleDone'
+    'click [type="checkbox"]':'toggleDone',
+    'click .destroy': 'destroy'
   },
 
   toggleDone: function() {
     this.model.toggle();
+  },
+
+  destroy: function() {
+    this.model.destroy();
   }
 
 });
