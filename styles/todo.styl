@@ -8,20 +8,14 @@
 
   input.edit
     display none
+    width auto
 
   .toggle
     width 20px
 
-  .editing label
-    display none
-
   .label
     display inline-block
     color black
-
-    .editing
-      display: none;
-
 
   .destroy
     position relative
@@ -39,4 +33,15 @@
   .done
     color gray
     text-decoration line-through
+
+.editing
+  label
+    display none
+
+  input.edit
+    display inline
+    width auto
+    background-color white
+    border 1px solid darkgray
+    cursor auto
 
