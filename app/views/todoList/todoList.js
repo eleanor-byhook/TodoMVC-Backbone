@@ -6,7 +6,6 @@ var $ = require('jquery');
 
 var todoList = require('./../../collections/todo.js');
 var Todo = require('./../todo/todo.js');
-var todoModel = require('./../../models/todo.js');
 
 var TodoList = Backbone.View.extend({
 
