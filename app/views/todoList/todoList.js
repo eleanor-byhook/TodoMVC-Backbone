@@ -14,6 +14,7 @@ var TodoList = Backbone.View.extend({
   initialize: function() {
     this.input = this.$('#newTodo');
     todoList.on('add', this.addAll, this);
+    todoList.on('reset', this.addAll, this);
     todoList.fetch();
   },
 
@@ -37,7 +38,18 @@ var TodoList = Backbone.View.extend({
 
   addAll: function () {
     this.$('#todos').html(''); //clears out the list
-    todoList.each(this.addOne, this);
+    console.log(window.filter);
+    switch(window.filter) {
+      case 'completed':
+        _.each(todoList.done(), this.addOne);
+        break;
+      case 'active':
+        _.each(todoList.remaining(), this.addOne);
+        break;
+      default:
+        todoList.each(this.addOne, this);
+        break;
+    }
   },
 
   addOne: function(todo) {

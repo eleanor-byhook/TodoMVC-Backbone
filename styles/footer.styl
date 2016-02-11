@@ -1,0 +1,41 @@
+#todo-footer
+
+  .filters
+    position absolute
+    right 0
+    left 0
+    margin 0
+    padding none
+    list-style none
+
+    li
+      display inline
+      font-size inherit
+
+      a
+        margin 3px
+        padding 3px 7px
+        border 1px solid transparent
+        border-radius 3px
+        text-decoration none
+        color inherit
+        cursor pointer
+
+        &:hover
+          border-color rgba(175, 37, 37, 0.1)
+
+       .selected
+         border-color rgba(175, 47, 47, 0.2)
+
+
+  button
+    float right
+    cursor pointer
+    font-size 14px
+    border 0
+    background-color transparent
+
+  .todo-count
+    float: left
+    font inherit
+

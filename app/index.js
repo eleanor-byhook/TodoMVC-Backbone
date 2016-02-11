@@ -7,9 +7,12 @@ var _ = require('underscore');
 var Header = require('./views/header/header.js');
 var NewTodo = require('./views/new-todo/newTodo.js');
 var TodoList = require('./views/todoList/todoList.js');
+var Footer = require('./views/footer/footer.js');
+var Router = require('./router/router.js');
 
 var App = Backbone.View.extend({
   initialize: function () {
+
     var header = new Header();
     header.render();
 
@@ -18,6 +21,13 @@ var App = Backbone.View.extend({
 
     var todoList = new TodoList();
     todoList.render();
+
+    var footer = new Footer();
+    footer.render();
+
+    var router = new Router();
+
+    Backbone.history.start();
   }
 });
 

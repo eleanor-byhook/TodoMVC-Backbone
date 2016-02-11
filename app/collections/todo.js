@@ -12,7 +12,12 @@ var TodoList = Backbone.Collection.extend({
 
   done: function () {
     return this.where({done: true});
+  },
+
+  remaining: function() {
+    return this.where({done: false});
   }
+
 });
 
 var todoList = new TodoList();

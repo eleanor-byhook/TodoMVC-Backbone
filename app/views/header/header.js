@@ -24,4 +24,3 @@ var Header = Backbone.View.extend({
 });
 
 module.exports = Header;
-window.app = new Header();
