@@ -2,7 +2,7 @@
   <span class="todo-count"><%= count != 1 ? count + ' items' : count + ' item'%> left</span>
   <ul class="filters">
     <li>
-      <a href="#/">All</a>
+      <a class="all" href="#/">All</a>
     </li>
     <li>
       <a href="#/active">Active</a>
@@ -11,5 +11,5 @@
       <a href="#/completed">Completed</a>
     </li>
   </ul>
-  <button class="clear-completed">Clear completed</button>
+  <input type="button" class="clear-completed" value="Clear completed">
 </div>

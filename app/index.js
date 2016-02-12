@@ -8,7 +8,8 @@ var Header = require('./views/header/header.js');
 var NewTodo = require('./views/new-todo/newTodo.js');
 var TodoList = require('./views/todoList/todoList.js');
 var Footer = require('./views/footer/footer.js');
-
+var TodoModel = require('./models/todo.js');
+var todomodel = new TodoModel();
 var Router = require('./router/router.js');
 
 var App = Backbone.View.extend({
@@ -23,7 +24,7 @@ var App = Backbone.View.extend({
     var todoList = new TodoList();
     todoList.render();
 
-    var footer = new Footer();
+    var footer = new Footer({model: todomodel});
     footer.render();
 
     Backbone.history.start();

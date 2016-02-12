@@ -5,14 +5,16 @@
   padding: 10px 15px
   text-align: center
   border-top: 1px solid #e6e6e6
+  align-items center
 
   .filters
-    position absolute
+    display inline-block
     right 0
     left 0
     margin 0
     padding none
     list-style none
+    width auto
 
     li
       display inline
@@ -37,14 +39,20 @@
           border-color rgba(175, 47, 47, 0.2)
 
 
-  button
+  .clear-completed
+    width: auto
     float right
+    margin 0 auto
+    margin-top -5px
+    font-size 15px
     cursor pointer
-    font-size 14px
-    border 0
     background-color transparent
+
+    &:hover
+      text-decoration underline
 
   .todo-count
     float: left
     font inherit
+    margin-top 4px
 

@@ -18,7 +18,7 @@ var TodoList = Backbone.Collection.extend({
     return this.where({done: false});
   },
 
-  total: function(){
+  total: function() {
     return this;
   }
 

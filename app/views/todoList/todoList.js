@@ -15,6 +15,7 @@ var TodoList = Backbone.View.extend({
     this.input = this.$('#newTodo');
     todoList.on('add', this.addAll, this);
     todoList.on('reset', this.addAll, this);
+    todoList.on('remove', this.addAll, this);
     todoList.fetch();
   },
 

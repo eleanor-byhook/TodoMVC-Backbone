@@ -2,6 +2,7 @@
 
 var Backbone = require('backbone');
 var _ = require('underscore');
+var $ = require('jquery');
 var footerTemplate = require('./footer.html');
 var TodoCollection = require('./../../collections/todo.js');
 
@@ -20,7 +21,8 @@ var Footer = Backbone.View.extend({
 
   events: {
     'click a': 'select',
-    'blur a': 'deselect'
+    'blur a': 'deselect',
+    'click input[type="button"]': 'clearCompleted'
   },
 
   updateCount: function() {
@@ -39,14 +41,21 @@ var Footer = Backbone.View.extend({
     this.$(e.target).blur();
   },
 
+  clearCompleted: function() {
+    var completed = TodoCollection.done();
+    _.each(completed, function(item) {
+      item.destroy();
+    });
+  },
+
   render: function () {
-    if(this.total > 0) {
+    if (this.total > 0) {
       this.$el.html(this.template({
         count: this.remainingCount
       }));
     } else {
       this.$el.html('');
-    };
+    }
   }});
 
 module.exports = Footer;
