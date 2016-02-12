@@ -12,10 +12,10 @@ var Footer = Backbone.View.extend({
   template: _.template(footerTemplate()),
 
   initialize: function () {
-    console.log('model: ' + JSON.stringify(this.model));
     this.remainingCount = TodoCollection.remaining().length;
+    this.total = TodoCollection.total().length;
     TodoCollection.on('change', this.updateCount, this);
-    this.render();
+    TodoCollection.on('remove', this.updateCount, this);
   },
 
   events: {
@@ -24,8 +24,8 @@ var Footer = Backbone.View.extend({
   },
 
   updateCount: function() {
-    console.log('called');
     this.remainingCount = TodoCollection.remaining().length;
+    this.total = TodoCollection.total().length;
     this.render();
   },
 
@@ -40,11 +40,13 @@ var Footer = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({
-      count: this.remainingCount
-    }));
-
-  }
-});
+    if(this.total > 0) {
+      this.$el.html(this.template({
+        count: this.remainingCount
+      }));
+    } else {
+      this.$el.html('');
+    };
+  }});
 
 module.exports = Footer;
