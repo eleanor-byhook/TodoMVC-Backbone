@@ -2,25 +2,31 @@
 
 var Backbone = require('backbone');
 var _ = require('underscore');
-var $ = require('jquery');
-
 var footerTemplate = require('./footer.html');
-var todoList = require('./../../collections/todo.js');
-var Todo = require('./../todo/todo.js');
+var TodoCollection = require('./../../collections/todo.js');
 
-var TodoList = Backbone.View.extend({
+var Footer = Backbone.View.extend({
 
   el: '#footer',
 
   template: _.template(footerTemplate()),
 
   initialize: function () {
+    console.log('model: ' + JSON.stringify(this.model));
+    this.remainingCount = TodoCollection.remaining().length;
+    TodoCollection.on('change', this.updateCount, this);
     this.render();
   },
 
   events: {
     'click a': 'select',
     'blur a': 'deselect'
+  },
+
+  updateCount: function() {
+    console.log('called');
+    this.remainingCount = TodoCollection.remaining().length;
+    this.render();
   },
 
   select: function(e) {
@@ -34,9 +40,11 @@ var TodoList = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template());
+    this.$el.html(this.template({
+      count: this.remainingCount
+    }));
 
   }
 });
 
-module.exports = TodoList;
+module.exports = Footer;

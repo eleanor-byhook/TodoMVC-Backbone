@@ -8,6 +8,7 @@ var Header = require('./views/header/header.js');
 var NewTodo = require('./views/new-todo/newTodo.js');
 var TodoList = require('./views/todoList/todoList.js');
 var Footer = require('./views/footer/footer.js');
+
 var Router = require('./router/router.js');
 
 var App = Backbone.View.extend({

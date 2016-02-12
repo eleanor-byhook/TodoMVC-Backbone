@@ -38,8 +38,7 @@ var TodoList = Backbone.View.extend({
 
   addAll: function () {
     this.$('#todos').html(''); //clears out the list
-    console.log(window.filter);
-    switch(window.filter) {
+    switch (window.filter) {
       case 'completed':
         _.each(todoList.done(), this.addOne);
         break;
