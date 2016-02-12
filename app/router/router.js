@@ -12,6 +12,7 @@ var Router = Backbone.Router.extend({
     window.filter = !params ? '' : params.trim();
     TodoList.trigger('reset');
   }
-})
+});
 
-module.exports = Router;
+var router = new Router();
+module.exports = router;

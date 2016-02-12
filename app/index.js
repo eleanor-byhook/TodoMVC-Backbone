@@ -25,8 +25,6 @@ var App = Backbone.View.extend({
     var footer = new Footer();
     footer.render();
 
-    var router = new Router();
-
     Backbone.history.start();
   }
 });
