@@ -1,6 +1,8 @@
 <li class="todo">
-  <input class="toggle" type="checkbox" id="checkbox" <%- done ? 'checked' : '' %>>
-  <label for="checkbox"><span id="svg"></span></label>
+  <label class="toggle">
+    <input type="checkbox" id="checkbox" <%- done ? 'checked' : '' %>>
+    <span class="svg"></span>
+  </label>
   <label class="<%- done ? 'done' : '' %>"><%- label %></label>
   <input class="edit" title="newTodo" value="<%- label %>">
     <button class="destroy">×</button>
