@@ -20,15 +20,11 @@ var NewTodo = Backbone.View.extend({
   toggleAll: function() {
     var remaining = todoCollection.remaining();
     var all = todoCollection.models;
-    console.log(remaining);
-    console.log(all);
     if (remaining.length) {
-      console.log('remaining');
       _.each(remaining, function(item) {
         item.toggle();
       });
     } else {
-      console.log('all');
       _.each(all, function(item) {
         item.toggle();
       });
