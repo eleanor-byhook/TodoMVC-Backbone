@@ -38,7 +38,6 @@ var Footer = Backbone.View.extend({
 
   deselect: function(e) {
     this.$(e.target).removeClass('selected');
-    this.$(e.target).blur();
   },
 
   clearCompleted: function() {
