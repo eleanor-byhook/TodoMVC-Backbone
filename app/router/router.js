@@ -1,7 +1,7 @@
 'use strict';
 
 var Backbone = require('backbone');
-var TodoList = require('./../collections/todo.js');
+var TodoCollection = require('./../collections/todo.js');
 
 var Router = Backbone.Router.extend({
   routes: {
@@ -10,7 +10,7 @@ var Router = Backbone.Router.extend({
 
   setFilter: function(params) {
     window.filter = !params ? '' : params.trim();
-    TodoList.trigger('reset');
+    TodoCollection.trigger('reset');
   }
 });
 

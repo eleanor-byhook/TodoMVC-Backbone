@@ -17,27 +17,33 @@ var Footer = Backbone.View.extend({
     this.total = TodoCollection.total().length;
     TodoCollection.on('change', this.updateCount, this);
     TodoCollection.on('remove', this.updateCount, this);
+    TodoCollection.on('reset', this.setFilter, this);
   },
 
   events: {
     'click a': 'select',
-    'blur a': 'deselect',
     'click input[type="button"]': 'clearCompleted'
   },
 
   updateCount: function() {
     this.remainingCount = TodoCollection.remaining().length;
     this.total = TodoCollection.total().length;
+    this.setFilter();
     this.render();
   },
 
-  select: function(e) {
-    this.$(e.target).addClass('selected');
-    this.$(e.target).focus();
+  setFilter: function() {
+    var filter = window.filter || '';
+    this.$('#todo-footer .filters li a')
+        .removeClass('selected')
+        .filter('[href="#/' + filter + '"]')
+        .addClass('selected');
   },
 
-  deselect: function(e) {
-    this.$(e.target).removeClass('selected');
+  select: function(e) {
+    this.$('#todo-footer .filters li a')
+    .removeClass('selected');
+    this.$(e.target).addClass('selected');
   },
 
   clearCompleted: function() {
@@ -52,6 +58,8 @@ var Footer = Backbone.View.extend({
       this.$el.html(this.template({
         count: this.remainingCount
       }));
+      this.filter = window.filter || '';
+      this.setFilter();
     } else {
       this.$el.html('');
     }

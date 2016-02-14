@@ -4,7 +4,7 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
 
-var todoList = require('./../../collections/todo.js');
+var TodoCollection = require('./../../collections/todo.js');
 var Todo = require('./../todo/todo.js');
 
 var TodoList = Backbone.View.extend({
@@ -13,10 +13,10 @@ var TodoList = Backbone.View.extend({
 
   initialize: function() {
     this.input = this.$('#newTodo');
-    todoList.on('add', this.addAll, this);
-    todoList.on('reset', this.addAll, this);
-    todoList.on('remove', this.addAll, this);
-    todoList.fetch();
+    TodoCollection.on('add', this.addAll, this);
+    TodoCollection.on('reset', this.addAll, this);
+    TodoCollection.on('remove', this.addAll, this);
+    TodoCollection.fetch();
   },
 
   events: {
@@ -29,7 +29,7 @@ var TodoList = Backbone.View.extend({
       return;
     }
 
-    todoList.create({
+    TodoCollection.create({
       label: this.input.val().trim(),
       done: false
     });
@@ -41,13 +41,13 @@ var TodoList = Backbone.View.extend({
     this.$('#todos').html(''); //clears out the list
     switch (window.filter) {
       case 'completed':
-        _.each(todoList.done(), this.addOne);
+        _.each(TodoCollection.done(), this.addOne);
         break;
       case 'active':
-        _.each(todoList.remaining(), this.addOne);
+        _.each(TodoCollection.remaining(), this.addOne);
         break;
       default:
-        todoList.each(this.addOne, this);
+        TodoCollection.each(this.addOne, this);
         break;
     }
   },
