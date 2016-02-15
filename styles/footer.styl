@@ -4,11 +4,15 @@
   color: rgb(119, 119, 119)
   padding: 10px 15px
   text-align: center
-  border-top: 1px solid #e6e6e6
   align-items center
   font inherit
   font-size 14px
   line-height 19.6px
+  border-top: 1px solid #e6e6e6
+
+  @media(max-width 414px)
+    #todo-footer
+      font-size 13px
 
   .filters
     display inline-block
@@ -20,6 +24,11 @@
     list-style none
     width auto
 
+    @media(max-width 414px)
+      .filters
+        padding 0
+        float left
+
     li
       display inline
       font-size inherit
@@ -27,11 +36,11 @@
       a
         margin 0 3px
         padding 3px 7px
-        border 1px solid transparent
-        border-radius 3px
         text-decoration none
         color #777
         cursor pointer
+        border 1px solid transparent
+        border-radius 3px
 
         &:hover
           border-color rgba(175, 37, 37, 0.1)
@@ -49,38 +58,29 @@
     height 20px
     padding 0
 
+    @media(max-width 414px)
+      .clear-completed
+        width auto
+
     &:hover
       text-decoration underline
 
     .completed-button
       height auto
       font-size inherit
-      background-color transparent
       color inherit
       margin 0 auto
       cursor pointer
+      background-color transparent
 
    .hidden
     display none
 
   .todo-count
+    width 20%
     float: left
     font inherit
-    width 20%
 
-@media(max-width 414px)
-  #todo-footer
-    font-size 13px
-
-    .clear-completed
-      width auto
-
-  .todo-count
-    display none
-
-  .filters
-    padding 0
-    float left
-
-
-
+    @media(max-width 414px)
+      .todo-count
+        display none

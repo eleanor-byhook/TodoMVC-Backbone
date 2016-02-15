@@ -2,10 +2,14 @@ transform(value)
   transform: value
 
 #newTodo
-  color black
-  padding 16px 16px 16px 30px
   height auto
   width 91%
+  padding 16px 16px 16px 30px
+  color black
+
+  @media(max-width 600px)
+    #newTodo
+      padding-left 30px
 
   &::-webkit-input-placeholder
     color rgb(220, 220, 220)
@@ -26,10 +30,10 @@ transform(value)
 
 #toggleAll
   position relative
+  left 5px
   display inline-block
   width 20px
   height 20px
-  left 5px
   padding 0
   padding-left: 10px
   font-size 22px
@@ -37,8 +41,4 @@ transform(value)
   background-color transparent
   outline none
   color rgb(230, 230, 230)
-  transform rotate(90deg)
-
-@media(max-width 600px)
-  #newTodo
-    padding-left 30px
+  transform rotate(90 deg)
