@@ -15,6 +15,7 @@
     right 0
     left 0
     margin 0
+    margin-top 1px
     padding none
     list-style none
     width auto
@@ -47,14 +48,13 @@
     width 112px
     height 20px
     padding 0
-    margin-top -1px
 
     &:hover
       text-decoration underline
 
     .completed-button
       height auto
-      font-size 14px
+      font-size inherit
       background-color transparent
       color inherit
       margin 0 auto
@@ -67,4 +67,14 @@
     float: left
     font inherit
     width 20%
+
+@media(max-width 414px)
+  #todo-footer
+    font-size 13px
+
+  .todo-count
+    display none
+
+  .filters
+    padding 0
 

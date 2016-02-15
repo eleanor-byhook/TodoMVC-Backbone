@@ -85,7 +85,16 @@
   input.edit
     display inline
     width 80%
+    padding-left 8px
     background-color white
     border 1px solid darkgray
     cursor auto
 
+@media(max-width 600px)
+  .todo
+    .label
+      width 70%
+
+  .editing
+    input.edit
+      width 70%

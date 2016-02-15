@@ -25,11 +25,12 @@ var Todo = Backbone.View.extend({
   events: {
     'click [type="checkbox"]':'toggleDone',
     'click .destroy': 'destroy',
-    'dblclick .todo': 'edit',
     'keypress .edit': 'updateOnEnter',
     'blur .edit': 'close',
     'mouseenter .todo': 'displayDestroyButton',
-    'mouseleave .todo': 'hideDestroyButton'
+    'mouseleave .todo': 'hideDestroyButton',
+    'dblclick .todo': 'edit',
+    'touchstart .todo .label': 'edit'
   },
 
   toggleDone: function() {
