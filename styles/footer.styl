@@ -43,18 +43,25 @@
 
 
   .clear-completed
-    width: auto
-    height auto
     float right
-    margin 0 auto
-    margin-top -1 px
-    cursor pointer
-    background-color transparent
-    font inherit
-    color inherit
+    width 112px
+    height 20px
+    padding 0
+    margin-top -1px
 
     &:hover
       text-decoration underline
+
+    .completed-button
+      height auto
+      font-size 14px
+      background-color transparent
+      color inherit
+      margin 0 auto
+      cursor pointer
+
+   .hidden
+    display none
 
   .todo-count
     float: left

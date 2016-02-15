@@ -15,6 +15,7 @@ var Footer = Backbone.View.extend({
   initialize: function () {
     this.remainingCount = TodoCollection.remaining().length;
     this.total = TodoCollection.total().length;
+    this.showClearCompleted();
     TodoCollection.on('change', this.updateCount, this);
     TodoCollection.on('remove', this.updateCount, this);
     TodoCollection.on('reset', this.setFilter, this);
@@ -40,6 +41,16 @@ var Footer = Backbone.View.extend({
         .addClass('selected');
   },
 
+  showClearCompleted: function() {
+    var done = TodoCollection.done().length;
+    var clearButton = this.$el.find('#todo-footer .clear-completed .completed-button');
+    if (done === 0) {
+      clearButton.addClass('hidden');
+    } else {
+      clearButton.removeClass('hidden');
+    }
+  },
+
   select: function(e) {
     this.$('#todo-footer .filters li a')
     .removeClass('selected');
@@ -58,8 +69,8 @@ var Footer = Backbone.View.extend({
       this.$el.html(this.template({
         count: this.remainingCount
       }));
-      this.filter = window.filter || '';
       this.setFilter();
+      this.showClearCompleted();
     } else {
       this.$el.html('');
     }
