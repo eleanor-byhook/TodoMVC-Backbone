@@ -16,6 +16,7 @@ var TodoList = Backbone.View.extend({
     TodoCollection.on('add', this.addAll, this);
     TodoCollection.on('reset', this.addAll, this);
     TodoCollection.on('remove', this.addAll, this);
+    TodoCollection.on('change', this.addAll, this);
     TodoCollection.fetch();
   },
 

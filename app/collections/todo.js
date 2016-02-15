@@ -4,7 +4,7 @@ var Backbone = require('backbone');
 var Store = require('backbone.localstorage');
 var Todo = require('./../models/todo.js');
 
-var TodoList = Backbone.Collection.extend({
+var TodoCollection = Backbone.Collection.extend({
 
   model: Todo,
 
@@ -24,5 +24,5 @@ var TodoList = Backbone.Collection.extend({
 
 });
 
-var todoList = new TodoList();
-module.exports = todoList;
+var todoCollection = new TodoCollection();
+module.exports = todoCollection;
