@@ -27,7 +27,9 @@ var Todo = Backbone.View.extend({
     'click .destroy': 'destroy',
     'dblclick .todo': 'edit',
     'keypress .edit': 'updateOnEnter',
-    'blur .edit': 'close'
+    'blur .edit': 'close',
+    'mouseenter .todo': 'displayDestroyButton',
+    'mouseleave .todo': 'hideDestroyButton'
   },
 
   toggleDone: function() {
@@ -55,6 +57,16 @@ var Todo = Backbone.View.extend({
 
   destroy: function() {
     this.model.destroy();
+  },
+
+  displayDestroyButton: function(e) {
+    var currentTodo = this.$el.find('.destroy');
+    currentTodo.addClass('show');
+  },
+
+  hideDestroyButton: function(e) {
+    var currentTodo = this.$el.find('.destroy');
+    currentTodo.removeClass('show');
   }
 
 });

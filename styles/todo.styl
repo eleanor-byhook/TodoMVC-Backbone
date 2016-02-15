@@ -37,6 +37,10 @@
       height 40px
       background url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='-10 -18 100 135'%3E%3Ccircle cx='50' cy='50' r='50' fill='none' stroke='%23ededed' stroke-width='3'/%3E%3C/svg%3E") no-repeat
 
+  &:hover + .destroy
+    display inline
+    color red
+
 .destroy
     position relative
     border none
@@ -56,9 +60,9 @@
     transition-timing-function: ease-out;
     transition-delay: initial;
 
-    &:hover
-      display inline
-      color #af5b5e
+  .show
+    display inline
+    color #af5b5e
 
   .done
     color rgb(217, 217, 217)
